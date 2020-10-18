@@ -1,11 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const Counter = ({ increment, decrement, value }) => (
+const Counter = ({ increment, decrement, incrementEvery, value }) => (
   <div>
-    {value}
-    <button onClick={increment}>Add 1</button>
-    <button onClick={decrement}>Minus 1</button>
+    <p>Spam that increment button</p>
+
+    <p>{value}</p>
+    <button onClick={increment}>INCREMENT LATEST</button>
+    <button onClick={decrement}>DECREMENT</button> <br />
+
+    <button onClick={incrementEvery}>INCREMENT EVERY</button>
   </div>
 );
 
@@ -15,6 +19,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   increment: () => dispatch({ type: 'INCREMENT_SAGA' }),
+  incrementEvery: () => dispatch({ type: 'INCREMENT_SAGA_EVERY' }),
   decrement: () => dispatch({ type: 'DECREMENT' })
 });
 
